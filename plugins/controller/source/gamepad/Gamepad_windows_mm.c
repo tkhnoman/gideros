@@ -353,7 +353,7 @@ void Gamepad_processEvents() {
         devicePrivate = device->privateData;
 
         info.dwSize = sizeof(info);
-        info.dwFlags = JOY_RETURNALL;
+        info.dwFlags = JOY_RETURNALL | JOY_RETURNPOVCTS;
         result = joyGetPosEx(devicePrivate->joystickID, &info);
         if (result == JOYERR_UNPLUGGED) {
             if (Gamepad_deviceRemoveCallback != NULL) {
